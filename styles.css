@@ -1,34 +1,38 @@
-/* 基本スタイル */
+/* styles.css */
+
+/* 全体の基本スタイル */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
-/* ヘッダーとリンク、ナビゲーション */
+/* ヘッダー */
 header {
     background-color: #ff4500;
-    /* スプラトゥーンらしいオレンジ */
+    /* スプラトゥーンらしい鮮やかなカラー */
     color: white;
     padding: 20px;
     text-align: center;
 }
 
-.top-links {
-    margin-bottom: 10px;
-}
-
 .top-links a {
-    color: #fffacd;
+    color: white;
+    margin: 0 15px;
     text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
+    font-weight: bold;
 }
 
 .top-links a:hover {
-    color: #ffffff;
+    text-decoration: underline;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 2.5em;
 }
 
 nav ul {
@@ -38,18 +42,17 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #fffacd;
+    text-decoration: underline;
 }
 
 /* メインコンテンツ */
@@ -59,46 +62,68 @@ main {
     padding: 0 20px;
 }
 
-section {
-    margin-bottom: 40px;
-    scroll-margin-top: 80px;
-    /* ヘッダー分の上部余白を確保 */
-}
-
+/* セクションの見出し */
 h2 {
     color: #ff4500;
+    font-size: 2em;
     border-bottom: 2px solid #ff4500;
     padding-bottom: 5px;
+    margin-bottom: 20px;
 }
 
+/* 「共通」「スプラトゥーン2」「スプラトゥーン3」の見出し */
+section#advanced h3:not(.technique h3) {
+    font-size: 1.5em;
+    /* 「ラグの技術」より小さめ */
+    color: #555;
+    /* 控えめなグレー */
+    margin: 20px 0 10px;
+    border-left: 4px solid #ff4500;
+    /* スプラトゥーンのテーマカラーをアクセントに */
+    padding-left: 10px;
+    font-weight: normal;
+    /* 強調を抑える */
+}
+
+/* 各ラグの技術のスタイル */
 .technique {
     background-color: white;
     padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.technique h3 {
+    font-size: 1.3em;
+    /* ラグ名はそのまま、控えめなサイズ */
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.technique p {
+    margin: 5px 0;
+}
+
 button {
-    background-color: #00ced1;
-    /* スプラトゥーンらしいターコイズ */
+    background-color: #ff4500;
     color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 0.9em;
 }
 
 button:hover {
-    background-color: #00b7b9;
+    background-color: #e03e00;
 }
 
 .details {
     margin-top: 10px;
     padding: 10px;
-    background-color: #e0ffff;
-    border-left: 4px solid #00ced1;
+    background-color: #f9f9f9;
+    border-left: 3px solid #ff4500;
 }
 
 /* フッター */
@@ -107,4 +132,29 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
+    margin-top: 20px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    section#advanced h3:not(.technique h3) {
+        font-size: 1.3em;
+    }
+
+    .technique h3 {
+        font-size: 1.2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
 }

@@ -18,8 +18,8 @@
         <h1>スプラトゥーン ラグ</h1>
         <nav>
             <ul>
-                <li><a href="#basic">基礎</a></li>
-                <li><a href="#advanced">応用</a></li>
+                <li><a href="#basic">種類</a></li>
+                <li><a href="#advanced">技術</a></li>
                 <li><a href="#tips">ヒント</a></li>
             </ul>
         </nav>
@@ -56,17 +56,10 @@
 
         <section id="advanced">
             <h2>ラグの技術</h2>
+
+            <h3>共通</h3>
             <div class="technique">
-                <h3>7. 一回浮き</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('squid-dash')">詳細を見る</button>
-                <div id="squid-dash" class="details" style="display: none;">
-                    <p>壁を登る時も有効。ジャンプと組み合わせて加速。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>8. 新浮き</h3>
+                <h3>1. 新浮き</h3>
                 <p>使用ラグ : Limit</p>
                 <p>難易度 : 中</p>
                 <button onclick="showDetails('splash-bomb')">詳細を見る</button>
@@ -75,223 +68,7 @@
                 </div>
             </div>
             <div class="technique">
-                <h3>9. 旧浮き(2)</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('squid-roll')">詳細を見る</button>
-                <div id="squid-roll" class="details" style="display: none;">
-                    <p>ダメージ軽減効果あり。敵の攻撃を避けよう。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>10. 旧浮き(3)</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('squid-climb')">詳細を見る</button>
-                <div id="squid-climb" class="details" style="display: none;">
-                    <p>インクが足りないと滑り落ちる。塗りを確認。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>11. 旧浮き応用(2)</h3>
-                <p>使用ラグ : Limit + Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('sub-strafe')">詳細を見る</button>
-                <div id="sub-strafe" class="details" style="display: none;">
-                    <p>ボム投げ中に敵の反撃を避けるテクニック。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>12. 旧浮き応用(3)</h3>
-                <p>使用ラグ : Limit + Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('quick-jump')">詳細を見る</button>
-                <div id="quick-jump" class="details" style="display: none;">
-                    <p>着地時に隙あり。ギアで着地時間を短縮。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>13. 浮きスラ(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('shot-dodge')">詳細を見る</button>
-                <div id="shot-dodge" class="details" style="display: none;">
-                    <p>予測移動が鍵。敵の癖を読もう。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>14. 新浮きスラ(2)</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('new-float-slide')">詳細を見る</button>
-                <div id="new-float-slide" class="details" style="display: none;">
-                    <p>素早い移動で敵を翻弄。シューターやブラスターで速度を活かそう。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>15. スライドラグ(ビーコン有り)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 最低</p>
-                <button onclick="showDetails('slide-beacon')">詳細を見る</button>
-                <div id="slide-beacon" class="details" style="display: none;">
-                    <p>ビーコンを利用して素早く位置移動。味方のサポートに最適。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>16. スライドラグ(ビーコン無し、スライド有り)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('slide-no-beacon')">詳細を見る</button>
-                <div id="slide-no-beacon" class="details" style="display: none;">
-                    <p>スライドで機動力を維持。狭いエリアで敵を出し抜く。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>17. スライドラグ(ビーコン、スライド無し)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('no-slide-beacon')">詳細を見る</button>
-                <div id="no-slide-beacon" class="details" style="display: none;">
-                    <p>ビーコン活用で安全な位置へ移動。防御的な動きに有効。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>18. ジャンプラグ(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('jump-lag-2')">詳細を見る</button>
-                <div id="jump-lag-2" class="details" style="display: none;">
-                    <p>ジャンプ中にラグを活用し、敵の狙いを外す。タイミングが重要。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>19. ジャンプラグ(3)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('jump-lag-3')">詳細を見る</button>
-                <div id="jump-lag-3" class="details" style="display: none;">
-                    <p>スプラトゥーン3向け。高度なジャンプで敵を混乱させよう。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>20. ジャンプラグ(落下)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中, 高</p>
-                <button onclick="showDetails('jump-lag-fall')">詳細を見る</button>
-                <div id="jump-lag-fall" class="details" style="display: none;">
-                    <p>落下中にラグで位置をずらし、奇襲攻撃を仕掛ける。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>21. 着地ラグ(ビーコン有り)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('land-lag-beacon')">詳細を見る</button>
-                <div id="land-lag-beacon" class="details" style="display: none;">
-                    <p>ビーコンへ着地時にラグで安全確保。素早い復帰に役立つ。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>22. 着地ラグ(ビーコン無し)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('land-lag-no-beacon')">詳細を見る</button>
-                <div id="land-lag-no-beacon" class="details" style="display: none;">
-                    <p>着地時の隙をラグでカバー。敵の攻撃を回避。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>23. 落ちラグ(ビーコン有り)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('fall-lag-beacon')">詳細を見る</button>
-                <div id="fall-lag-beacon" class="details" style="display: none;">
-                    <p>ビーコン利用で落下を制御。安全な位置へ移動。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>24. 落ちラグ(ビーコン無し)(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('fall-lag-no-beacon')">詳細を見る</button>
-                <div id="fall-lag-no-beacon" class="details" style="display: none;">
-                    <p>落下中にラグで敵の視線をずらし、奇襲を狙う。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>25. 落ち浮きラグ(3)</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('fall-float-lag')">詳細を見る</button>
-                <div id="fall-float-lag" class="details" style="display: none;">
-                    <p>落下中に浮きを組み合わせて移動。スプラトゥーン3で有効。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>26. 落ち浮きラグ応用(3)</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('fall-float-lag-advanced')">詳細を見る</button>
-                <div id="fall-float-lag-advanced" class="details" style="display: none;">
-                    <p>高度な制御で敵を翻弄。精密なタイミングが必要。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>27. ジェッパラグ(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('jet-lag')">詳細を見る</button>
-                <div id="jet-lag" class="details" style="display: none;">
-                    <p>ジェットパック使用時にラグで位置をずらし、敵を混乱。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>28. 前ラグ(2)</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('front-lag')">詳細を見る</button>
-                <div id="front-lag" class="details" style="display: none;">
-                    <p>前方移動中にラグで敵のエイムを外す。攻撃的な動きに。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>29. 無敵ラグ(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('invincible-lag')">詳細を見る</button>
-                <div id="invincible-lag" class="details" style="display: none;">
-                    <p>ラグで一時的な無敵状態を模倣。タイミングが鍵。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>30. 透明ラグ(2)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('invisible-lag-2')">詳細を見る</button>
-                <div id="invisible-lag-2" class="details" style="display: none;">
-                    <p>ラグで敵から見えづらくなる。高度な制御で奇襲を。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>31. 透明ラグ(3)</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('invisible-lag-3')">詳細を見る</button>
-                <div id="invisible-lag-3" class="details" style="display: none;">
-                    <p>スプラトゥーン3向け。簡易的なラグで位置を隠す。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>32. ショクワンラグ(3)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('shock-lag')">詳細を見る</button>
-                <div id="shock-lag" class="details" style="display: none;">
-                    <p>ショクワンダー使用時にラグで動きを強化。攻撃力アップ。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>33. ホコジャン</h3>
+                <h3>2. ホコジャン</h3>
                 <p>使用ラグ : Queue</p>
                 <p>難易度 : 中</p>
                 <button onclick="showDetails('hoko-jump')">詳細を見る</button>
@@ -300,7 +77,7 @@
                 </div>
             </div>
             <div class="technique">
-                <h3>34. ホコジェッパ</h3>
+                <h3>3. ホコジェッパ</h3>
                 <p>使用ラグ : Queue</p>
                 <p>難易度 : 中</p>
                 <button onclick="showDetails('hoko-jet')">詳細を見る</button>
@@ -308,8 +85,82 @@
                     <p>ガチホコとジェットパックをラグで強化。広範囲攻撃に。</p>
                 </div>
             </div>
+
+            <h3>スプラトゥーン3</h3>
             <div class="technique">
-                <h3>35. ホコショクワン(3)</h3>
+                <h3>4. 一回浮き</h3>
+                <p>使用ラグ : Limit</p>
+                <p>難易度 : 最低</p>
+                <button onclick="showDetails('squid-dash')">詳細を見る</button>
+                <div id="squid-dash" class="details" style="display: none;">
+                    <p>壁を登る時も有効。ジャンプと組み合わせて加速。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>5. 旧浮き</h3>
+                <p>使用ラグ : Block</p>
+                <p>難易度 : 高</p>
+                <button onclick="showDetails('squid-climb')">詳細を見る</button>
+                <div id="squid-climb" class="details" style="display: none;">
+                    <p>インクが足りないと滑り落ちる。塗りを確認。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>6. 旧浮き応用</h3>
+                <p>使用ラグ : Limit + Block</p>
+                <p>難易度 : 最高</p>
+                <button onclick="showDetails('sub-strafe')">詳細を見る</button>
+                <div id="sub-strafe" class="details" style="display: none;">
+                    <p>ボム投げ中に敵の反撃を避けるテクニック。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>7. ジャンプラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('jump-lag-3')">詳細を見る</button>
+                <div id="jump-lag-3" class="details" style="display: none;">
+                    <p>スプラトゥーン3向け。高度なジャンプで敵を混乱させよう。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>8. 落ち浮きラグ</h3>
+                <p>使用ラグ : Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('fall-float-lag')">詳細を見る</button>
+                <div id="fall-float-lag" class="details" style="display: none;">
+                    <p>落下中に浮きを組み合わせて移動。スプラトゥーン3で有効。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>9. 落ち浮きラグ応用</h3>
+                <p>使用ラグ : Block</p>
+                <p>難易度 : 高</p>
+                <button onclick="showDetails('fall-float-lag-advanced')">詳細を見る</button>
+                <div id="fall-float-lag-advanced" class="details" style="display: none;">
+                    <p>高度な制御で敵を翻弄。精密なタイミングが必要。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>10. 透明ラグ</h3>
+                <p>使用ラグ : Limit</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('invisible-lag-3')">詳細を見る</button>
+                <div id="invisible-lag-3" class="details" style="display: none;">
+                    <p>スプラトゥーン3向け。簡易的なラグで位置を隠す。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>11. ショクワンラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 高</p>
+                <button onclick="showDetails('shock-lag')">詳細を見る</button>
+                <div id="shock-lag" class="details" style="display: none;">
+                    <p>ショクワンダー使用時にラグで動きを強化。攻撃力アップ。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>12. ホコショクワン</h3>
                 <p>使用ラグ : Queue</p>
                 <p>難易度 : 中</p>
                 <button onclick="showDetails('hoko-shock')">詳細を見る</button>
@@ -318,21 +169,176 @@
                 </div>
             </div>
             <div class="technique">
-                <h3>36. ホコ武器</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('hoko-weapon')">詳細を見る</button>
-                <div id="hoko-weapon" class="details" style="display: none;">
-                    <p>ガチホコ持ち時に武器とラグを組み合わせ、攻防を強化。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>37. 吹っ飛びラグ(3)</h3>
+                <h3>13. 吹っ飛びラグ</h3>
                 <p>使用ラグ : Queue</p>
                 <p>難易度 : 中</p>
                 <button onclick="showDetails('blow-lag')">詳細を見る</button>
                 <div id="blow-lag" class="details" style="display: none;">
                     <p>吹っ飛び中にラグで軌道を制御。意外な位置から反撃。</p>
+                </div>
+            </div>
+
+            <h3>スプラトゥーン2</h3>
+            <div class="technique">
+                <h3>14. 旧浮き</h3>
+                <p>使用ラグ : Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('squid-roll')">詳細を見る</button>
+                <div id="squid-roll" class="details" style="display: none;">
+                    <p>ダメージ軽減効果あり。敵の攻撃を避けよう。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>15. 旧浮き応用</h3>
+                <p>使用ラグ : Limit + Block</p>
+                <p>難易度 : 最高</p>
+                <button onclick="showDetails('quick-jump')">詳細を見る</button>
+                <div id="quick-jump" class="details" style="display: none;">
+                    <p>着地時に隙あり。ギアで着地時間を短縮。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>16. 浮きスラ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('shot-dodge')">詳細を見る</button>
+                <div id="shot-dodge" class="details" style="display: none;">
+                    <p>予測移動が鍵。敵の癖を読もう。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>17. 新浮きスラ</h3>
+                <p>使用ラグ : Limit</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('new-float-slide')">詳細を見る</button>
+                <div id="new-float-slide" class="details" style="display: none;">
+                    <p>素早い移動で敵を翻弄。シューターやブラスターで速度を活かそう。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>18. スライドラグ(ビーコン有り)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 最低</p>
+                <button onclick="showDetails('slide-beacon')">詳細を見る</button>
+                <div id="slide-beacon" class="details" style="display: none;">
+                    <p>ビーコンを利用して素早く位置移動。味方のサポートに最適。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>19. スライドラグ(ビーコン無し、スライド有り)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('slide-no-beacon')">詳細を見る</button>
+                <div id="slide-no-beacon" class="details" style="display: none;">
+                    <p>スライドで機動力を維持。狭いエリアで敵を出し抜く。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>20. スライドラグ(ビーコン、スライド無し)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('no-slide-beacon')">詳細を見る</button>
+                <div id="no-slide-beacon" class="details" style="display: none;">
+                    <p>ビーコン活用で安全な位置へ移動。防御的な動きに有効。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>21. ジャンプラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('jump-lag-2')">詳細を見る</button>
+                <div id="jump-lag-2" class="details" style="display: none;">
+                    <p>ジャンプ中にラグを活用し、敵の狙いを外す。タイミングが重要。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>22. ジャンプラグ(落下)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中, 高</p>
+                <button onclick="showDetails('jump-lag-fall')">詳細を見る</button>
+                <div id="jump-lag-fall" class="details" style="display: none;">
+                    <p>落下中にラグで位置をずらし、奇襲攻撃を仕掛ける。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>23. 着地ラグ(ビーコン有り)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('land-lag-beacon')">詳細を見る</button>
+                <div id="land-lag-beacon" class="details" style="display: none;">
+                    <p>ビーコンへ着地時にラグで安全確保。素早い復帰に役立つ。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>24. 着地ラグ(ビーコン無し)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('land-lag-no-beacon')">詳細を見る</button>
+                <div id="land-lag-no-beacon" class="details" style="display: none;">
+                    <p>着地時の隙をラグでカバー。敵の攻撃を回避。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>25. 落ちラグ(ビーコン有り)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 低</p>
+                <button onclick="showDetails('fall-lag-beacon')">詳細を見る</button>
+                <div id="fall-lag-beacon" class="details" style="display: none;">
+                    <p>ビーコン利用で落下を制御。安全な位置へ移動。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>26. 落ちラグ(ビーコン無し)</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('fall-lag-no-beacon')">詳細を見る</button>
+                <div id="fall-lag-no-beacon" class="details" style="display: none;">
+                    <p>落下中にラグで敵の視線をずらし、奇襲を狙う。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>27. ジェッパラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 高</p>
+                <button onclick="showDetails('jet-lag')">詳細を見る</button>
+                <div id="jet-lag" class="details" style="display: none;">
+                    <p>ジェットパック使用時にラグで位置をずらし、敵を混乱。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>28. 前ラグ</h3>
+                <p>使用ラグ : Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('front-lag')">詳細を見る</button>
+                <div id="front-lag" class="details" style="display: none;">
+                    <p>前方移動中にラグで敵のエイムを外す。攻撃的な動きに。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>29. 無敵ラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('invincible-lag')">詳細を見る</button>
+                <div id="invincible-lag" class="details" style="display: none;">
+                    <p>ラグで一時的な無敵状態を模倣。タイミングが鍵。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>30. 透明ラグ</h3>
+                <p>使用ラグ : Limit, Block</p>
+                <p>難易度 : 最高</p>
+                <button onclick="showDetails('invisible-lag-2')">詳細を見る</button>
+                <div id="invisible-lag-2" class="details" style="display: none;">
+                    <p>ラグで敵から見えづらくなる。高度な制御で奇襲を。</p>
+                </div>
+            </div>
+            <div class="technique">
+                <h3>31. ホコ武器</h3>
+                <p>使用ラグ : Queue</p>
+                <p>難易度 : 中</p>
+                <button onclick="showDetails('hoko-weapon')">詳細を見る</button>
+                <div id="hoko-weapon" class="details" style="display: none;">
+                    <p>ガチホコ持ち時に武器とラグを組み合わせ、攻防を強化。</p>
                 </div>
             </div>
         </section>
