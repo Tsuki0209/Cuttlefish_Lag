@@ -3,20 +3,27 @@
 /* 全体の基本スタイル */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Apple風フォント */
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f5f5f7;
+    /* Appleの明るいグレー背景 */
     color: #1d1d1f;
+    /* ダークグレー */
     -webkit-font-smoothing: antialiased;
+    /* フォントを滑らかに */
     -moz-osx-font-smoothing: grayscale;
 }
 
 /* ヘッダー */
 header {
     background-color: rgba(0, 0, 0, 0.8);
+    /* 半透明の黒背景 */
     backdrop-filter: blur(10px);
+    /* すりガラス効果 */
     -webkit-backdrop-filter: blur(10px);
+    /* Safari用プレフィックス */
     color: #fff;
     padding: 24px 20px;
     text-align: center;
@@ -24,39 +31,20 @@ header {
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: padding 0.3s ease, height 0.3s ease;
-    /* スムーズなアニメーション */
-}
-
-/* 縮小時のヘッダースタイル */
-header.header-minimized {
-    padding: 8px 20px;
-    /* 上下のpaddingを縮小 */
-    height: 60px;
-    /* タイトル表示用の高さ */
-}
-
-header.header-minimized .top-links,
-header.header-minimized nav {
-    display: none;
-    /* リンクとナビゲーションを非表示 */
-}
-
-header.header-minimized h1 {
-    margin: 0;
-    font-size: 1.8em;
-    /* 縮小時にタイトルを少し小さく */
+    /* 薄いボーダー */
 }
 
 /* フォールバック（backdrop-filter非対応ブラウザ用） */
 @supports not (backdrop-filter: blur(10px)) {
     header {
         background-color: rgba(0, 0, 0, 0.9);
+        /* より不透明な黒 */
     }
 }
 
 .top-links a {
     color: #d2d2d7;
+    /* Apple風の薄いグレー */
     margin: 0 20px;
     text-decoration: none;
     font-size: 1.1em;
@@ -66,6 +54,7 @@ header.header-minimized h1 {
 
 .top-links a:hover {
     color: #0071e3;
+    /* Appleのアクセントブルー */
 }
 
 h1 {
@@ -73,8 +62,6 @@ h1 {
     font-size: 2.5em;
     font-weight: 600;
     letter-spacing: -0.02em;
-    transition: font-size 0.3s ease;
-    /* タイトルサイズのアニメーション */
 }
 
 nav ul {
@@ -103,6 +90,7 @@ nav ul li a:hover {
 /* メインコンテンツ */
 main {
     max-width: 1000px;
+    /* Apple風の広めの幅 */
     margin: 40px auto;
     padding: 0 24px;
 }
@@ -115,6 +103,7 @@ h2 {
     letter-spacing: -0.01em;
     margin-bottom: 32px;
     border-bottom: 1px solid #d2d2d7;
+    /* 控えめなグレー */
     padding-bottom: 8px;
 }
 
@@ -134,12 +123,14 @@ section#advanced h3:not(.technique h3) {
     padding: 24px;
     margin-bottom: 24px;
     border-radius: 12px;
+    /* Apple風の角丸 */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .technique:hover {
     transform: translateY(-4px);
+    /* ホバー時に浮かせる */
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
@@ -153,11 +144,13 @@ section#advanced h3:not(.technique h3) {
 .technique p {
     margin: 8px 0;
     color: #515154;
+    /* Apple風の薄いグレー */
     font-size: 1em;
 }
 
 button {
     background-color: #0071e3;
+    /* Appleのブルー */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -170,6 +163,7 @@ button {
 
 button:hover {
     background-color: #005bb5;
+    /* ホバー時の濃いブルー */
     transform: scale(1.05);
 }
 
@@ -179,6 +173,7 @@ button:hover {
     background-color: #f9f9fb;
     border-radius: 8px;
     border-left: 3px solid #0071e3;
+    /* Appleブルーのアクセント */
 }
 
 /* フィルターコンテナ */
@@ -190,6 +185,7 @@ button:hover {
     margin-bottom: 32px;
     display: flex;
     flex-direction: row;
+    /* Apple風に横並び */
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
@@ -203,8 +199,10 @@ button:hover {
 
 .filter-container select {
     width: 220px;
+    /* 固定幅で統一感 */
     padding: 12px;
     border: 1px solid #d2d2d7;
+    /* Apple風の薄いボーダー */
     border-radius: 8px;
     font-size: 1em;
     background-color: #fff;
@@ -216,6 +214,7 @@ button:hover {
     outline: none;
     border-color: #0071e3;
     box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+    /* Apple風のフォーカスリング */
 }
 
 /* 非表示用のクラス */
@@ -257,17 +256,14 @@ footer {
 
     .filter-container {
         flex-direction: column;
+        /* モバイルでは縦並び */
         align-items: stretch;
         padding: 16px;
     }
 
     .filter-container select {
         width: 100%;
-    }
-
-    header.header-minimized h1 {
-        font-size: 1.5em;
-        /* モバイルでさらに小さく */
+        /* モバイルでフル幅 */
     }
 }
 
