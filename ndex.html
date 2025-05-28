@@ -56,6 +56,27 @@
 
         <section id="advanced">
             <h2>ラグの技術</h2>
+            <!-- フィルターUIを追加 -->
+            <div class="filter-container">
+                <label for="lag-type-filter">ラグの種類で絞り込み:</label>
+                <select id="lag-type-filter">
+                    <option value="">すべて</option>
+                    <option value="Limit">Limit</option>
+                    <option value="Block">Block</option>
+                    <option value="Queue">Queue</option>
+                    <option value="Limit, Block">Limit, Block</option>
+                    <option value="Limit + Block">Limit + Block</option>　　　
+                </select>
+                <label for="difficulty-filter">難易度で絞り込み:</label>
+                <select id="difficulty-filter">
+                    <option value="">すべて</option>
+                    <option value="最低">最低</option>
+                    <option value="低">低</option>
+                    <option value="中">中</option>
+                    <option value="高">高</option>
+                    <option value="最高">最高</option>
+                </select>
+            </div>
 
             <h3>共通</h3>
             <div class="technique">

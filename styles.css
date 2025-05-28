@@ -126,6 +126,54 @@ button:hover {
     border-left: 3px solid #ff4500;
 }
 
+/* フィルターコンテナ */
+.filter-container {
+    background-color: #fff;
+    /* 背景を白にして他のコンテンツと統一 */
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* カード風の影 */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    /* 縦に配置 */
+    align-items: flex-start;
+    /* 左揃え */
+    gap: 15px;
+    /* 要素間の間隔を広げる */
+}
+
+.filter-container label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.filter-container select {
+    width: 100%;
+    /* 幅をコンテナに合わせる */
+    max-width: 300px;
+    /* 最大幅を制限 */
+    padding: 10px;
+    border: 2px solid #ff4500;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.filter-container select:focus {
+    outline: none;
+    border-color: #e03e00;
+}
+
+/* 非表示用のクラス */
+.hidden {
+    display: none;
+}
+
 /* フッター */
 footer {
     text-align: center;
@@ -156,5 +204,15 @@ footer {
     nav ul li {
         display: block;
         margin: 5px 0;
+    }
+
+    .filter-container {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .filter-container select {
+        max-width: 100%;
+        /* モバイルではフル幅 */
     }
 }
