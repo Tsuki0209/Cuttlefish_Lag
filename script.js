@@ -68,4 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 初期表示時にフィルターを適用
     applyFilters();
+
+    // ヘッダーの縮小機能
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        const currentScrollTop = window.scrollY;
+
+        if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+            // 下にスクロール（ヘッダーを縮小、タイトル表示）
+            header.classList.add('header-minimized');
+        } else if (currentScrollTop < lastScrollTop || currentScrollTop <= 100) {
+            // 上にスクロールまたはページ上部（ヘッダーを通常表示）
+            header.classList.remove('header-minimized');
+        }
+        lastScrollTop = currentScrollTop;
+    });
 });

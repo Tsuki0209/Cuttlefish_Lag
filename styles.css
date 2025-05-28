@@ -2,171 +2,220 @@
 
 /* 全体の基本スタイル */
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ヘッダー */
 header {
-    background-color: #ff4500;
-    /* スプラトゥーンらしい鮮やかなカラー */
-    color: white;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    padding: 24px 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: padding 0.3s ease, height 0.3s ease;
+    /* スムーズなアニメーション */
+}
+
+/* 縮小時のヘッダースタイル */
+header.header-minimized {
+    padding: 8px 20px;
+    /* 上下のpaddingを縮小 */
+    height: 60px;
+    /* タイトル表示用の高さ */
+}
+
+header.header-minimized .top-links,
+header.header-minimized nav {
+    display: none;
+    /* リンクとナビゲーションを非表示 */
+}
+
+header.header-minimized h1 {
+    margin: 0;
+    font-size: 1.8em;
+    /* 縮小時にタイトルを少し小さく */
+}
+
+/* フォールバック（backdrop-filter非対応ブラウザ用） */
+@supports not (backdrop-filter: blur(10px)) {
+    header {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
 }
 
 .top-links a {
-    color: white;
-    margin: 0 15px;
+    color: #d2d2d7;
+    margin: 0 20px;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .top-links a:hover {
-    text-decoration: underline;
+    color: #0071e3;
 }
 
 h1 {
-    margin: 10px 0;
+    margin: 16px 0;
     font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    transition: font-size 0.3s ease;
+    /* タイトルサイズのアニメーション */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 16px 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 16px;
 }
 
 nav ul li a {
-    color: white;
+    color: #d2d2d7;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #0071e3;
 }
 
 /* メインコンテンツ */
 main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 24px;
 }
 
 /* セクションの見出し */
 h2 {
-    color: #ff4500;
-    font-size: 2em;
-    border-bottom: 2px solid #ff4500;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
+    color: #1d1d1f;
+    font-size: 2.2em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #d2d2d7;
+    padding-bottom: 8px;
 }
 
 /* 「共通」「スプラトゥーン2」「スプラトゥーン3」の見出し */
 section#advanced h3:not(.technique h3) {
-    font-size: 1.5em;
-    /* 「ラグの技術」より小さめ */
-    color: #555;
-    /* 控えめなグレー */
-    margin: 20px 0 10px;
-    border-left: 4px solid #ff4500;
-    /* スプラトゥーンのテーマカラーをアクセントに */
-    padding-left: 10px;
-    font-weight: normal;
-    /* 強調を抑える */
+    font-size: 1.6em;
+    color: #1d1d1f;
+    margin: 32px 0 16px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding-left: 12px;
 }
 
 /* 各ラグの技術のスタイル */
 .technique {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technique:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .technique h3 {
-    font-size: 1.3em;
-    /* ラグ名はそのまま、控えめなサイズ */
-    color: #333;
-    margin: 0 0 10px;
+    font-size: 1.4em;
+    color: #1d1d1f;
+    margin: 0 0 12px;
+    font-weight: 500;
 }
 
 .technique p {
-    margin: 5px 0;
+    margin: 8px 0;
+    color: #515154;
+    font-size: 1em;
 }
 
 button {
-    background-color: #ff4500;
-    color: white;
+    background-color: #0071e3;
+    color: #fff;
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #e03e00;
+    background-color: #005bb5;
+    transform: scale(1.05);
 }
 
 .details {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-left: 3px solid #ff4500;
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #f9f9fb;
+    border-radius: 8px;
+    border-left: 3px solid #0071e3;
 }
 
 /* フィルターコンテナ */
 .filter-container {
     background-color: #fff;
-    /* 背景を白にして他のコンテンツと統一 */
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* カード風の影 */
-    margin-bottom: 20px;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 32px;
     display: flex;
-    flex-direction: column;
-    /* 縦に配置 */
-    align-items: flex-start;
-    /* 左揃え */
-    gap: 15px;
-    /* 要素間の間隔を広げる */
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .filter-container label {
-    font-weight: bold;
-    color: #333;
+    font-weight: 500;
+    color: #1d1d1f;
     font-size: 1.1em;
 }
 
 .filter-container select {
-    width: 100%;
-    /* 幅をコンテナに合わせる */
-    max-width: 300px;
-    /* 最大幅を制限 */
-    padding: 10px;
-    border: 2px solid #ff4500;
-    border-radius: 5px;
+    width: 220px;
+    padding: 12px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
     font-size: 1em;
-    background-color: white;
+    background-color: #fff;
     cursor: pointer;
-    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
 .filter-container select:focus {
     outline: none;
-    border-color: #e03e00;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
 }
 
 /* 非表示用のクラス */
@@ -177,14 +226,14 @@ button:hover {
 /* フッター */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    margin-top: 20px;
+    padding: 32px 20px;
+    background-color: #000;
+    color: #d2d2d7;
+    font-size: 0.9em;
 }
 
 /* レスポンシブデザイン */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     h1 {
         font-size: 2em;
     }
@@ -194,25 +243,42 @@ footer {
     }
 
     section#advanced h3:not(.technique h3) {
-        font-size: 1.3em;
+        font-size: 1.4em;
     }
 
     .technique h3 {
-        font-size: 1.2em;
+        font-size: 1.3em;
     }
 
     nav ul li {
         display: block;
-        margin: 5px 0;
+        margin: 8px 0;
     }
 
     .filter-container {
-        padding: 10px;
-        gap: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
     }
 
     .filter-container select {
-        max-width: 100%;
-        /* モバイルではフル幅 */
+        width: 100%;
+    }
+
+    header.header-minimized h1 {
+        font-size: 1.5em;
+        /* モバイルでさらに小さく */
+    }
+}
+
+@media (max-width: 480px) {
+    .top-links a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9em;
     }
 }
