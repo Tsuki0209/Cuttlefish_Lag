@@ -164,14 +164,11 @@
             color: #fff;
             border: none;
             width: 40px;
-            /* 真円にするため幅と高さを同一に */
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 1em;
-            /* 矢印のサイズを縮小 */
             display: flex;
-            /* 矢印を中央に */
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s ease;
@@ -224,10 +221,15 @@
 
         .usage-card {
             background-color: #fff;
-            padding: 20px;
+            padding: 0;
+            /* 画像と文章の境界でパディングを調整 */
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            /* 画像がはみ出さないように */
+            position: relative;
+            /* フェードアウト用の擬似要素の位置調整 */
         }
 
         .usage-card:hover {
@@ -235,43 +237,43 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
 
+        .usage-card img {
+            width: 100%;
+            height: 120px;
+            /* 画像の高さを固定 */
+            object-fit: cover;
+            display: block;
+        }
+
+        .usage-card::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            /* 画像の下部からフェード開始 */
+            left: 0;
+            width: 100%;
+            height: 40px;
+            /* フェードの範囲 */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            pointer-events: none;
+            /* クリックの妨げにならないように */
+        }
+
+        .usage-card-content {
+            padding: 16px;
+        }
+
         .usage-card h3 {
             font-size: 1.3em;
             color: #1d1d1f;
-            margin: 0 0 12px;
+            margin: 0 0 8px;
             font-weight: 500;
         }
 
         .usage-card p {
-            margin: 8px 0;
+            margin: 0;
             color: #515154;
             font-size: 0.95em;
-        }
-
-        .usage-card button {
-            background-color: #0071e3;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.95em;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .usage-card button:hover {
-            background-color: #005bb5;
-            transform: scale(1.05);
-        }
-
-        .usage-details {
-            margin-top: 12px;
-            padding: 12px;
-            background-color: #f9f9fb;
-            border-radius: 8px;
-            border-left: 3px solid #0071e3;
-            display: none;
         }
 
         /* メインコンテンツ */
@@ -461,7 +463,6 @@
 
             .slider-nav button {
                 width: 36px;
-                /* モバイルで少し小さく */
                 height: 36px;
                 font-size: 0.9em;
             }
@@ -514,11 +515,11 @@
                 </div>
                 <div class="slide">
                     <img src="https://via.placeholder.com/1000x400?text=Slide+2" alt="スライド2">
-                    <p class="slide-caption">透明ラグで敵を翻弄。戦略的な動きをサポート。</p>
+                    <p class="slide-caption">透明ラグで敵を翻弄。戦略的な動きを。</p>
                 </div>
                 <div class="slide">
                     <img src="https://via.placeholder.com/1000x400?text=Slide+3" alt="スライド3">
-                    <p class="slide-caption">ホコを使ったラグで一気に攻め込むテクニック。</p>
+                    <p class="slide-caption">ホコを使ったラグで一気に攻め込む。</p>
                 </div>
             </div>
             <div class="slider-nav">
@@ -537,124 +538,144 @@
             <h2>ソフトウェアの使い方</h2>
             <div class="usage-grid">
                 <div class="usage-card">
-                    <h3>1. ソフトウェアのインストール</h3>
-                    <p>ラグツールをPCにインストールする手順。</p>
-                    <button onclick="showUsageDetails('usage-1')">詳細</button>
-                    <div id="usage-1" class="usage-details">公式サイトから最新版をダウンロードし、指示に従う。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+1" alt="インストール">
+                    <div class="usage-card-content">
+                        <h3>1. ソフトウェアのインストール</h3>
+                        <p>公式サイトからラグツールをダウンロードし、指示に従ってインストール。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>2. 初期設定</h3>
-                    <p>ネットワーク設定を最適化する方法。</p>
-                    <button onclick="showUsageDetails('usage-2')">詳細</button>
-                    <div id="usage-2" class="usage-details">ラグの種類に応じた設定を調整。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+2" alt="初期設定">
+                    <div class="usage-card-content">
+                        <h3>2. 初期設定</h3>
+                        <p>ネットワーク設定を最適化し、ラグの種類に応じて調整。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>3. Limitラグの設定</h3>
-                    <p>通信速度を制限する基本設定。</p>
-                    <button onclick="showUsageDetails('usage-3')">詳細</button>
-                    <div id="usage-3" class="usage-details">ツールのスライダーで帯域幅を調整。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+3" alt="Limitラグ">
+                    <div class="usage-card-content">
+                        <h3>3. Limitラグの設定</h3>
+                        <p>スライダーで帯域幅を制限し、通信速度を制御。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>4. Blockラグの設定</h3>
-                    <p>通信を一時遮断する設定方法。</p>
-                    <button onclick="showUsageDetails('usage-4')">詳細</button>
-                    <div id="usage-4" class="usage-details">特定のパケットをブロックする設定。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+4" alt="Blockラグ">
+                    <div class="usage-card-content">
+                        <h3>4. Blockラグの設定</h3>
+                        <p>特定のパケットをブロックして通信を一時遮断。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>5. Queueラグの設定</h3>
-                    <p>キューを利用した高度な設定。</p>
-                    <button onclick="showUsageDetails('usage-5')">詳細</button>
-                    <div id="usage-5" class="usage-details">パケットの優先順位を変更。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+5" alt="Queueラグ">
+                    <div class="usage-card-content">
+                        <h3>5. Queueラグの設定</h3>
+                        <p>パケットの優先順位を変更し、高度なラグを実現。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>6. テスト環境の構築</h3>
-                    <p>ラグを安全に試す環境作り。</p>
-                    <button onclick="showUsageDetails('usage-6')">詳細</button>
-                    <div id="usage-6" class="usage-details">オフラインモードで動作確認。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+6" alt="テスト環境">
+                    <div class="usage-card-content">
+                        <h3>6. テスト環境の構築</h3>
+                        カードのテスト環境を確認するオフラインモードで動作します。
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>7. ラグのタイミング調整</h3>
-                    <p>正確なタイミングでのラグ実行。</p>
-                    <button onclick="showUsageDetails('usage-7')">詳細</button>
-                    <div id="usage-7" class="usage-details">ゲーム内のアクションに合わせる。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+7" alt="タイミング調整">
+                    <div class="usage-card-content">
+                        <h3>7. ラグのタイミング調整</h3>
+                        <p>ゲーム内のアクションに合わせてラグを適用。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>8. エラーのトラブルシューティング</h3>
-                    <p>よくある問題の解決方法。</p>
-                    <button onclick="showUsageDetails('usage-8')">詳細</button>
-                    <div id="usage-8" class="usage-details">ログを確認してエラーコードを解析。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+8" alt="トラブルシューティング">
+                    <div class="usage-card-content">
+                        <h3>8. エラーのトラブルシューティング</h3>
+                        <p>ログを確認してエラーコードを解析。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>9. ネットワークの安定化</h3>
-                    <p>安定したラグ環境の維持。</p>
-                    <button onclick="showUsageDetails('usage-9')">詳細</button>
-                    <div id="usage-9" class="usage-details">ルーター設定を最適化。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+9" alt="ネットワーク安定化">
+                    <div class="usage-card-content">
+                        <h3>9. ネットワークの安定化</h3>
+                        <p>ルーターを設定して安定したラグ環境を維持。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>10. ラグの保存設定</h3>
-                    <p>設定を保存して再利用。</p>
-                    <button onclick="showUsageDetails('usage-10')">詳細</button>
-                    <div id="usage-10" class="usage-details">プロファイルを保存。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+10" alt="保存設定">
+                    <div class="usage-card-content">
+                        <h3>10. ラグの保存設定</h3>
+                        <p>プロファイルを保存して設定を再利用。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>11. 複数ラグの組み合わせ</h3>
-                    <p>LimitとBlockの同時使用。</p>
-                    <button onclick="showUsageDetails('usage-11')">詳細</button>
-                    <div id="usage-11" class="usage-details">ツール内で複数の設定を適用。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+11" alt="複数ラグ">
+                    <div class="usage-card-content">
+                        <h3>11. 複数ラグの組み合わせ</h3>
+                        <p>LimitとBlockを同時に適用。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>12. ホコラグの設定</h3>
-                    <p>ホコを使ったラグの設定方法。</p>
-                    <button onclick="showUsageDetails('usage-12')">詳細</button>
-                    <div id="usage-12" class="usage-details">ホコモード専用の設定を適用。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+12" alt="ホコラグ">
+                    <div class="usage-card-content">
+                        <h3>12. ホコラグの設定</h3>
+                        <p>ホコモード専用のラグ設定を適用。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>13. 透明ラグの設定</h3>
-                    <p>透明状態を維持する設定。</p>
-                    <button onclick="showUsageDetails('usage-13')">詳細</button>
-                    <div id="usage-13" class="usage-details">特定のパケットを操作。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+13" alt="透明ラグ">
+                    <div class="usage-card-content">
+                        <h3>13. 透明ラグの設定</h3>
+                        <p>特定のパケットを操作して透明状態を保つ。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>14. ラグの自動化</h3>
-                    <p>スクリプトでラグを自動化。</p>
-                    <button onclick="showUsageDetails('usage-14')">詳細</button>
-                    <div id="usage-14" class="usage-details">マクロ設定を活用。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+14" alt="自動化">
+                    <div class="usage-card-content">
+                        <h3>14. ラグの自動化</h3>
+                        <p>マクロやスクリプトでラグを自動化。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>15. ラグのログ確認</h3>
-                    <p>実行ログを確認する方法。</p>
-                    <button onclick="showUsageDetails('usage-15')">詳細</button>
-                    <div id="usage-15" class="usage-details">ログ画面で詳細を確認。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+15" alt="ログ確認">
+                    <div class="usage-card-content">
+                        <h3>15. ラグのログ確認</h3>
+                        <p>実行ログを確認して動作を検証。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>16. ゲーム内設定との連携</h3>
-                    <p>ゲーム設定とラグの同期。</p>
-                    <button onclick="showUsageDetails('usage-16')">詳細</button>
-                    <div id="usage-16" class="usage-details">コントローラー設定を調整。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+16" alt="ゲーム連携">
+                    <div class="usage-card-content">
+                        <h3>16. ゲーム内設定との連携</h3>
+                        <p>ゲームのコントローラー設定と同期。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>17. ラグのバックアップ</h3>
-                    <p>設定のバックアップ方法。</p>
-                    <button onclick="showUsageDetails('usage-17')">詳細</button>
-                    <div id="usage-17" class="usage-details">設定をクラウドに保存。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+17" alt="バックアップ">
+                    <div class="usage-card-content">
+                        <h3>17. ラグのバックアップ</h3>
+                        <p>設定をクラウドにバックアップ。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>18. アップデートの確認</h3>
-                    <p>最新バージョンの確認。</p>
-                    <button onclick="showUsageDetails('usage-18')">詳細</button>
-                    <div id="usage-18" class="usage-details">ツールの更新を定期的に確認。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+18" alt="アップデート">
+                    <div class="usage-card-content">
+                        <h3>18. アップデートの確認</h3>
+                        <p>ツールの最新バージョンを確認。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>19. コミュニティ設定の利用</h3>
-                    <p>他のユーザーの設定を参考に。</p>
-                    <button onclick="showUsageDetails('usage-19')">詳細</button>
-                    <div id="usage-19" class="usage-details">フォーラムで共有設定を入手。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+19" alt="コミュニティ設定">
+                    <div class="usage-card-content">
+                        <h3>19. コミュニティ設定の利用</h3>
+                        <p>他のユーザーの設定を参考に。</p>
+                    </div>
                 </div>
                 <div class="usage-card">
-                    <h3>20. 安全なラグ運用</h3>
-                    <p>安全にラグを使用するコツ。</p>
-                    <button onclick="showUsageDetails('usage-20')">詳細</button>
-                    <div id="usage-20" class="usage-details">規約違反を避ける運用方法。</div>
+                    <img src="https://via.placeholder.com/300x120?text=Step+20" alt="安全な運用">
+                    <div class="usage-card-content">
+                        <h3>20. 安全なラグ運用</h3>
+                        <p>規約違反を避け、安全にラグを使用。</p>
+                    </div>
                 </div>
             </div>
         </section>
