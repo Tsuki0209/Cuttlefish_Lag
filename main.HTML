@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>Cuttlefish</title>
+    <title>スプラトゥーン PCラグ</title>
     <style>
         /* 全体の基本スタイル */
         body {
@@ -25,18 +25,14 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+            padding: 12px 20px;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
-            /* Flexboxを使用してレイアウト */
             align-items: center;
-            /* 垂直方向の中央揃え */
             justify-content: space-between;
-            /* 左右に要素を配置 */
         }
 
         @supports not (backdrop-filter: blur(10px)) {
@@ -45,23 +41,18 @@
             }
         }
 
-        /* ヘッダーのタイトル（Cuttlefish） */
         h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.8em;
             font-weight: 600;
             letter-spacing: -0.02em;
             flex: 0 0 auto;
-            /* タイトルは縮まない */
         }
 
-        /* ナビゲーション */
         nav {
             flex: 1;
-            /* ナビゲーションが残りのスペースを占有 */
             display: flex;
             justify-content: center;
-            /* 中央揃え */
         }
 
         nav ul {
@@ -69,9 +60,7 @@
             padding: 0;
             margin: 0;
             display: flex;
-            /* リンクを横に並べる */
-            gap: 32px;
-            /* リンク間の間隔 */
+            gap: 24px;
         }
 
         nav ul li {
@@ -81,7 +70,7 @@
         nav ul li a {
             color: #d2d2d7;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 500;
             transition: color 0.3s ease;
         }
@@ -90,17 +79,15 @@
             color: #0071e3;
         }
 
-        /* トップリンク（元のリンク部分） */
         .top-links {
             flex: 0 0 auto;
-            /* リンク部分は縮まない */
         }
 
         .top-links a {
             color: #d2d2d7;
-            margin: 0 20px;
+            margin: 0 10px;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 500;
             transition: color 0.3s ease;
         }
@@ -109,34 +96,182 @@
             color: #0071e3;
         }
 
-        h1 {
-            margin: 16px 0;
-            font-size: 2.5em;
-            font-weight: 600;
+        /* ヒーローセクション */
+        .hero-section {
+            background-color: #fafafa;
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h2 {
+            font-size: 3.5em;
+            font-weight: 700;
             letter-spacing: -0.02em;
+            margin: 0 0 16px;
+            color: #1d1d1f;
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 16px 0;
+        .hero-section p {
+            font-size: 1.2em;
+            color: #515154;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 16px;
+        /* 画像スライダー */
+        .slider-section {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
         }
 
-        nav ul li a {
-            color: #d2d2d7;
-            text-decoration: none;
-            font-size: 1.1em;
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            text-align: center;
+        }
+
+        .slide img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .slide-caption {
+            margin-top: 16px;
+            font-size: 1em;
+            color: #515154;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            width: 40px;
+            /* 真円にするため幅と高さを同一に */
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1em;
+            /* 矢印のサイズを縮小 */
+            display: flex;
+            /* 矢印を中央に */
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .slider-indicators {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #d2d2d7;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+            background-color: #0071e3;
+        }
+
+        /* 使い方カード */
+        .usage-section {
+            max-width: 1000px;
+            margin: 0 auto 40px;
+        }
+
+        .usage-section h2 {
+            font-size: 2.2em;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #d2d2d7;
+            padding-bottom: 8px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+
+        .usage-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .usage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .usage-card h3 {
+            font-size: 1.3em;
+            color: #1d1d1f;
+            margin: 0 0 12px;
             font-weight: 500;
-            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: #0071e3;
+        .usage-card p {
+            margin: 8px 0;
+            color: #515154;
+            font-size: 0.95em;
+        }
+
+        .usage-card button {
+            background-color: #0071e3;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .usage-card button:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+        }
+
+        .usage-details {
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #f9f9fb;
+            border-radius: 8px;
+            border-left: 3px solid #0071e3;
+            display: none;
         }
 
         /* メインコンテンツ */
@@ -146,7 +281,6 @@
             padding: 0 24px;
         }
 
-        /* セクションの見出し */
         h2 {
             color: #1d1d1f;
             font-size: 2.2em;
@@ -157,7 +291,6 @@
             padding-bottom: 8px;
         }
 
-        /* 「共通」「スプラトゥーン2」「スプラトゥーン3」の見出し */
         section#advanced h3:not(.technique h3) {
             font-size: 1.6em;
             color: #1d1d1f;
@@ -167,7 +300,6 @@
             padding-left: 12px;
         }
 
-        /* 各ラグの技術のスタイル */
         .technique {
             background-color: #fff;
             padding: 24px;
@@ -220,7 +352,6 @@
             border-left: 3px solid #0071e3;
         }
 
-        /* フィルターコンテナ */
         .filter-container {
             background-color: #fff;
             padding: 24px;
@@ -257,12 +388,10 @@
             box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
         }
 
-        /* 非表示用のクラス */
         .hidden {
             display: none;
         }
 
-        /* フッター */
         footer {
             text-align: center;
             padding: 32px 20px;
@@ -274,11 +403,19 @@
         /* レスポンシブデザイン */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 1.5em;
             }
 
             h2 {
                 font-size: 1.8em;
+            }
+
+            .hero-section h2 {
+                font-size: 2.5em;
+            }
+
+            .hero-section p {
+                font-size: 1em;
             }
 
             section#advanced h3:not(.technique h3) {
@@ -289,9 +426,19 @@
                 font-size: 1.3em;
             }
 
-            nav ul li {
-                display: block;
-                margin: 8px 0;
+            header {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .top-links {
+                margin-bottom: 12px;
             }
 
             .filter-container {
@@ -303,11 +450,26 @@
             .filter-container select {
                 width: 100%;
             }
+
+            .usage-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide img {
+                max-height: 300px;
+            }
+
+            .slider-nav button {
+                width: 36px;
+                /* モバイルで少し小さく */
+                height: 36px;
+                font-size: 0.9em;
+            }
         }
 
         @media (max-width: 480px) {
             .top-links a {
-                margin: 0 10px;
+                margin: 0 8px;
                 font-size: 0.9em;
             }
 
@@ -329,434 +491,627 @@
                 <li><a href="#tips">ヒント</a></li>
             </ul>
         </nav>
+        <div class="top-links">
+            <a href="https://www.nintendo.co.jp/switch/av5ja/" target="_blank">スプラトゥーン</a>
+            <a href="https://splatoon.nintendo.com/" target="_blank">Splatoon Global</a>
+            <a href="https://twitter.com/SplatoonJP" target="_blank">公式X</a>
+        </div>
     </header>
 
     <main>
-        <section id="basic">
-            <h2>ラグの種類</h2>
-            <div class="technique">
-                <h3>1. Limit</h3>
-                <p>通信速度を低下させることで発生するラグ。</p>
-                <button onclick="showDetails('move-aim')">詳細を見る</button>
-                <div id="move-aim" class="details" style="display: none;">
-                    <p>最も使われることが多く、汎用性が高い。</p>
+        <!-- ヒーローセクション -->
+        <section class="hero-section">
+            <h2>スプラトゥーン PCラグの世界へ</h2>
+            <p>ラグを活用してゲームを極めよう。新しい技術とヒントで一歩先へ。</p>
+        </section>
+
+        <!-- 画像スライダー -->
+        <section class="slider-section">
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1000x400?text=Slide+1" alt="スライド1">
+                    <p class="slide-caption">ラグを使った高所移動の例。素早いポジショニングが可能。</p>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1000x400?text=Slide+2" alt="スライド2">
+                    <p class="slide-caption">透明ラグで敵を翻弄。戦略的な動きをサポート。</p>
+                </div>
+                <div class="slide">
+                    <img src="https://via.placeholder.com/1000x400?text=Slide+3" alt="スライド3">
+                    <p class="slide-caption">ホコを使ったラグで一気に攻め込むテクニック。</p>
                 </div>
             </div>
-            <div class="technique">
-                <h3>2. Block</h3>
-                <p>通信を遮断することで発生するラグ。</p>
-                <button onclick="showDetails('squid-mode')">詳細を見る</button>
-                <div id="squid-mode" class="details" style="display: none;">
-                    <p>リミットと同様にほとんどのラグで使用できる。</p>
-                </div>
+            <div class="slider-nav">
+                <button onclick="prevSlide()">←</button>
+                <button onclick="nextSlide()">→</button>
             </div>
-            <div class="technique">
-                <h3>3. Queue</h3>
-                <p>キューを利用してより高度に制限することで発生するラグ。</p>
-                <button onclick="showDetails('jump')">詳細を見る</button>
-                <div id="jump" class="details" style="display: none;">
-                    <p>主にに微ラグで使用される。</p>
+            <div class="slider-indicators">
+                <span class="indicator active" onclick="goToSlide(0)"></span>
+                <span class="indicator" onclick="goToSlide(1)"></span>
+                <span class="indicator" onclick="goToSlide(2)"></span>
+            </div>
+        </section>
+
+        <!-- 使い方カード -->
+        <section class="usage-section">
+            <h2>ソフトウェアの使い方</h2>
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <h3>1. ソフトウェアのインストール</h3>
+                    <p>ラグツールをPCにインストールする手順。</p>
+                    <button onclick="showUsageDetails('usage-1')">詳細</button>
+                    <div id="usage-1" class="usage-details">公式サイトから最新版をダウンロードし、指示に従う。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>2. 初期設定</h3>
+                    <p>ネットワーク設定を最適化する方法。</p>
+                    <button onclick="showUsageDetails('usage-2')">詳細</button>
+                    <div id="usage-2" class="usage-details">ラグの種類に応じた設定を調整。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>3. Limitラグの設定</h3>
+                    <p>通信速度を制限する基本設定。</p>
+                    <button onclick="showUsageDetails('usage-3')">詳細</button>
+                    <div id="usage-3" class="usage-details">ツールのスライダーで帯域幅を調整。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>4. Blockラグの設定</h3>
+                    <p>通信を一時遮断する設定方法。</p>
+                    <button onclick="showUsageDetails('usage-4')">詳細</button>
+                    <div id="usage-4" class="usage-details">特定のパケットをブロックする設定。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>5. Queueラグの設定</h3>
+                    <p>キューを利用した高度な設定。</p>
+                    <button onclick="showUsageDetails('usage-5')">詳細</button>
+                    <div id="usage-5" class="usage-details">パケットの優先順位を変更。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>6. テスト環境の構築</h3>
+                    <p>ラグを安全に試す環境作り。</p>
+                    <button onclick="showUsageDetails('usage-6')">詳細</button>
+                    <div id="usage-6" class="usage-details">オフラインモードで動作確認。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>7. ラグのタイミング調整</h3>
+                    <p>正確なタイミングでのラグ実行。</p>
+                    <button onclick="showUsageDetails('usage-7')">詳細</button>
+                    <div id="usage-7" class="usage-details">ゲーム内のアクションに合わせる。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>8. エラーのトラブルシューティング</h3>
+                    <p>よくある問題の解決方法。</p>
+                    <button onclick="showUsageDetails('usage-8')">詳細</button>
+                    <div id="usage-8" class="usage-details">ログを確認してエラーコードを解析。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>9. ネットワークの安定化</h3>
+                    <p>安定したラグ環境の維持。</p>
+                    <button onclick="showUsageDetails('usage-9')">詳細</button>
+                    <div id="usage-9" class="usage-details">ルーター設定を最適化。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>10. ラグの保存設定</h3>
+                    <p>設定を保存して再利用。</p>
+                    <button onclick="showUsageDetails('usage-10')">詳細</button>
+                    <div id="usage-10" class="usage-details">プロファイルを保存。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>11. 複数ラグの組み合わせ</h3>
+                    <p>LimitとBlockの同時使用。</p>
+                    <button onclick="showUsageDetails('usage-11')">詳細</button>
+                    <div id="usage-11" class="usage-details">ツール内で複数の設定を適用。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>12. ホコラグの設定</h3>
+                    <p>ホコを使ったラグの設定方法。</p>
+                    <button onclick="showUsageDetails('usage-12')">詳細</button>
+                    <div id="usage-12" class="usage-details">ホコモード専用の設定を適用。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>13. 透明ラグの設定</h3>
+                    <p>透明状態を維持する設定。</p>
+                    <button onclick="showUsageDetails('usage-13')">詳細</button>
+                    <div id="usage-13" class="usage-details">特定のパケットを操作。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>14. ラグの自動化</h3>
+                    <p>スクリプトでラグを自動化。</p>
+                    <button onclick="showUsageDetails('usage-14')">詳細</button>
+                    <div id="usage-14" class="usage-details">マクロ設定を活用。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>15. ラグのログ確認</h3>
+                    <p>実行ログを確認する方法。</p>
+                    <button onclick="showUsageDetails('usage-15')">詳細</button>
+                    <div id="usage-15" class="usage-details">ログ画面で詳細を確認。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>16. ゲーム内設定との連携</h3>
+                    <p>ゲーム設定とラグの同期。</p>
+                    <button onclick="showUsageDetails('usage-16')">詳細</button>
+                    <div id="usage-16" class="usage-details">コントローラー設定を調整。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>17. ラグのバックアップ</h3>
+                    <p>設定のバックアップ方法。</p>
+                    <button onclick="showUsageDetails('usage-17')">詳細</button>
+                    <div id="usage-17" class="usage-details">設定をクラウドに保存。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>18. アップデートの確認</h3>
+                    <p>最新バージョンの確認。</p>
+                    <button onclick="showUsageDetails('usage-18')">詳細</button>
+                    <div id="usage-18" class="usage-details">ツールの更新を定期的に確認。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>19. コミュニティ設定の利用</h3>
+                    <p>他のユーザーの設定を参考に。</p>
+                    <button onclick="showUsageDetails('usage-19')">詳細</button>
+                    <div id="usage-19" class="usage-details">フォーラムで共有設定を入手。</div>
+                </div>
+                <div class="usage-card">
+                    <h3>20. 安全なラグ運用</h3>
+                    <p>安全にラグを使用するコツ。</p>
+                    <button onclick="showUsageDetails('usage-20')">詳細</button>
+                    <div id="usage-20" class="usage-details">規約違反を避ける運用方法。</div>
                 </div>
             </div>
         </section>
 
-        <section id="advanced">
-            <h2>ラグの技術</h2>
-            <div class="filter-container">
-                <label for="lag-type-filter">ラグの種類で絞り込み:</label>
-                <select id="lag-type-filter">
-                    <option value="">すべて</option>
-                    <option value="Limit">Limit</option>
-                    <option value="Block">Block</option>
-                    <option value="Queue">Queue</option>
-                    <option value="Limit, Block">Limit, Block</option>
-                    <option value="Limit + Block">Limit + Block</option>
-                </select>
-                <label for="difficulty-filter">難易度で絞り込み:</label>
-                <select id="difficulty-filter">
-                    <option value="">すべて</option>
-                    <option value="最低">最低</option>
-                    <option value="低">低</option>
-                    <option value="中">中</option>
-                    <option value="高">高</option>
-                    <option value="最高">最高</option>
-                </select>
-            </div>
+        <main>
+            <section id="basic">
+                <h2>ラグの種類</h2>
+                <div class="technique">
+                    <h3>1. Limit</h3>
+                    <p>通信速度を低下させることで発生するラグ。</p>
+                    <button onclick="showDetails('move-aim')">詳細を見る</button>
+                    <div id="move-aim" class="details" style="display: none;">
+                        <p>最も使われることが多く、汎用性が高い。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>2. Block</h3>
+                    <p>通信を遮断することで発生するラグ。</p>
+                    <button onclick="showDetails('squid-mode')">詳細を見る</button>
+                    <div id="squid-mode" class="details" style="display: none;">
+                        <p>リミットと同様にほとんどのラグで使用できる。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>3. Queue</h3>
+                    <p>キューを利用してより高度に制限することで発生するラグ。</p>
+                    <button onclick="showDetails('jump')">詳細を見る</button>
+                    <div id="jump" class="details" style="display: none;">
+                        <p>主にに微ラグで使用される。</p>
+                    </div>
+                </div>
+            </section>
 
-            <h3>スプラトゥーン2, 3</h3>
-            <div class="technique">
-                <h3>1. 新浮き</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('splash-bomb')">詳細を見る</button>
-                <div id="splash-bomb" class="details" style="display: none;">
-                    <p>高所への移動で使用される。様々な場面で活躍する。</p>
+            <section id="advanced">
+                <h2>ラグの技術</h2>
+                <div class="filter-container">
+                    <label for="lag-type-filter">ラグの種類で絞り込み:</label>
+                    <select id="lag-type-filter">
+                        <option value="">すべて</option>
+                        <option value="Limit">Limit</option>
+                        <option value="Block">Block</option>
+                        <option value="Queue">Queue</option>
+                        <option value="Limit, Block">Limit, Block</option>
+                        <option value="Limit + Block">Limit + Block</option>
+                    </select>
+                    <label for="difficulty-filter">難易度で絞り込み:</label>
+                    <select id="difficulty-filter">
+                        <option value="">すべて</option>
+                        <option value="最低">最低</option>
+                        <option value="低">低</option>
+                        <option value="中">中</option>
+                        <option value="高">高</option>
+                        <option value="最高">最高</option>
+                    </select>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>2. ホコジャン</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('hoko-jump')">詳細を見る</button>
-                <div id="hoko-jump" class="details" style="display: none;">
-                    <p>ホコを持ってスーパージャンプを行う。浮き系のラグと組み合わせられる事が多い。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>3. ホコジェッパ</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('hoko-jet')">詳細を見る</button>
-                <div id="hoko-jet" class="details" style="display: none;">
-                    <p>ソロでも高所の足場に乗れる。</p>
-                </div>
-            </div>
 
-            <h3>スプラトゥーン3</h3>
-            <div class="technique">
-                <h3>4. 一回浮き</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 最低</p>
-                <button onclick="showDetails('squid-dash')">詳細を見る</button>
-                <div id="squid-dash" class="details" style="display: none;">
-                    <p>ラグ一回で浮くことが出来る最も簡単なラグ。</p>
+                <h3>スプラトゥーン2, 3</h3>
+                <div class="technique">
+                    <h3>1. 新浮き</h3>
+                    <p>使用ラグ : Limit</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('splash-bomb')">詳細を見る</button>
+                    <div id="splash-bomb" class="details" style="display: none;">
+                        <p>高所への移動で使用される。様々な場面で活躍する。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>5. 旧浮き</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('squid-climb')">詳細を見る</button>
-                <div id="squid-climb" class="details" style="display: none;">
-                    <p>高所に移動する時に使われるが、新浮きラグがあるため使用頻度は低め。</p>
+                <div class="technique">
+                    <h3>2. ホコジャン</h3>
+                    <p>使用ラグ : Queue</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('hoko-jump')">詳細を見る</button>
+                    <div id="hoko-jump" class="details" style="display: none;">
+                        <p>ホコを持ってスーパージャンプを行う。浮き系のラグと組み合わせられる事が多い。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>6. 旧浮き応用</h3>
-                <p>使用ラグ : Limit + Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('sub-strafe')">詳細を見る</button>
-                <div id="sub-strafe" class="details" style="display: none;">
-                    <p>浮きラグ系の中で最も難しい。出来たら凄い。</p>
+                <div class="technique">
+                    <h3>3. ホコジェッパ</h3>
+                    <p>使用ラグ : Queue</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('hoko-jet')">詳細を見る</button>
+                    <div id="hoko-jet" class="details" style="display: none;">
+                        <p>ソロでも高所の足場に乗れる。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>7. ジャンプラグ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('jump-lag-3')">詳細を見る</button>
-                <div id="jump-lag-3" class="details" style="display: none;">
-                    <p>小さな段差や少し遠くの足場への移動で使用される。汎用性が高くよく利用される。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>8. 落ち浮きラグ</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('fall-float-lag')">詳細を見る</button>
-                <div id="fall-float-lag" class="details" style="display: none;">
-                    <p>高所への移動に使用されるが、新浮きがあるためやはり使用頻度は低め。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>9. 落ち浮きラグ応用</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('fall-float-lag-advanced')">詳細を見る</button>
-                <div id="fall-float-lag-advanced" class="details" style="display: none;">
-                    <p>落ち浮きラグの応用。かなり難しい。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>10. 透明ラグ</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('invisible-lag-3')">詳細を見る</button>
-                <div id="invisible-lag-3" class="details" style="display: none;">
-                    <p>透明になれる。ダメージは普通に食らう。非公開ラグ。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>11. 浮上ラグ</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('shock-lag')">詳細を見る</button>
-                <div id="shock-lag" class="details" style="display: none;">
-                    <p>かなり高くまで上昇できる。運要素も大きくかなり難しい。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>12. ホコショクワン</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('hoko-shock')">詳細を見る</button>
-                <div id="hoko-shock" class="details" style="display: none;">
-                    <p>ソロで高所の足場に乗れる。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>13. 吹っ飛びラグ</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('blow-lag')">詳細を見る</button>
-                <div id="blow-lag" class="details" style="display: none;">
-                    <p>実用性は低いが見た目のインパクトが大きい。</p>
-                </div>
-            </div>
 
-            <h3>スプラトゥーン2</h3>
-            <div class="technique">
-                <h3>14. 旧浮き</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('squid-roll')">詳細を見る</button>
-                <div id="squid-roll" class="details" style="display: none;">
-                    <p>スプラ2では新浮きと同じくらい使用されている。</p>
+                <h3>スプラトゥーン3</h3>
+                <div class="technique">
+                    <h3>4. 一回浮き</h3>
+                    <p>使用ラグ : Limit</p>
+                    <p>難易度 : 最低</p>
+                    <button onclick="showDetails('squid-dash')">詳細を見る</button>
+                    <div id="squid-dash" class="details" style="display: none;">
+                        <p>ラグ一回で浮くことが出来る最も簡単なラグ。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>15. 旧浮き応用</h3>
-                <p>使用ラグ : Limit + Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('quick-jump')">詳細を見る</button>
-                <div id="quick-jump" class="details" style="display: none;">
-                    <p>タイミングがかなり複雑な上に、スプラ2だと回線落ちのリスクも高い。</p>
+                <div class="technique">
+                    <h3>5. 旧浮き</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 高</p>
+                    <button onclick="showDetails('squid-climb')">詳細を見る</button>
+                    <div id="squid-climb" class="details" style="display: none;">
+                        <p>高所に移動する時に使われるが、新浮きラグがあるため使用頻度は低め。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>16. 浮きスラ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('shot-dodge')">詳細を見る</button>
-                <div id="shot-dodge" class="details" style="display: none;">
-                    <p>ラグ一回で様々な足場に乗れる便利なラグ。</p>
+                <div class="technique">
+                    <h3>6. 旧浮き応用</h3>
+                    <p>使用ラグ : Limit + Block</p>
+                    <p>難易度 : 最高</p>
+                    <button onclick="showDetails('sub-strafe')">詳細を見る</button>
+                    <div id="sub-strafe" class="details" style="display: none;">
+                        <p>浮きラグ系の中で最も難しい。出来たら凄い。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>17. 新浮きスラ</h3>
-                <p>使用ラグ : Limit</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('new-float-slide')">詳細を見る</button>
-                <div id="new-float-slide" class="details" style="display: none;">
-                    <p>こちらも浮きスラと同様に便利なラグ。</p>
+                <div class="technique">
+                    <h3>7. ジャンプラグ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('jump-lag-3')">詳細を見る</button>
+                    <div id="jump-lag-3" class="details" style="display: none;">
+                        <p>小さな段差や少し遠くの足場への移動で使用される。汎用性が高くよく利用される。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>18. スライドラグ(ビーコン有り)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 最低</p>
-                <button onclick="showDetails('slide-beacon')">詳細を見る</button>
-                <div id="slide-beacon" class="details" style="display: none;">
-                    <p>最も簡単でシンプルなラグ。</p>
+                <div class="technique">
+                    <h3>8. 落ち浮きラグ</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('fall-float-lag')">詳細を見る</button>
+                    <div id="fall-float-lag" class="details" style="display: none;">
+                        <p>高所への移動に使用されるが、新浮きがあるためやはり使用頻度は低め。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>19. スライドラグ(ビーコン無し、スライド有り)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('slide-no-beacon')">詳細を見る</button>
-                <div id="slide-no-beacon" class="details" style="display: none;">
-                    <p>ビーコンがない分少し難易度は上がるが、それでも簡単。</p>
+                <div class="technique">
+                    <h3>9. 落ち浮きラグ応用</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 最高</p>
+                    <button onclick="showDetails('fall-float-lag-advanced')">詳細を見る</button>
+                    <div id="fall-float-lag-advanced" class="details" style="display: none;">
+                        <p>落ち浮きラグの応用。かなり難しい。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>20. スライドラグ(ビーコン、スライド無し)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('no-slide-beacon')">詳細を見る</button>
-                <div id="no-slide-beacon" class="details" style="display: none;">
-                    <p>そもそも上２つのスライドラグで十分なため使用されることは少ない。</p>
+                <div class="technique">
+                    <h3>10. 透明ラグ</h3>
+                    <p>使用ラグ : Limit</p>
+                    <p>難易度 : 低</p>
+                    <button onclick="showDetails('invisible-lag-3')">詳細を見る</button>
+                    <div id="invisible-lag-3" class="details" style="display: none;">
+                        <p>透明になれる。ダメージは普通に食らう。非公開ラグ。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>21. ジャンプラグ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('jump-lag-2')">詳細を見る</button>
-                <div id="jump-lag-2" class="details" style="display: none;">
-                    <p>遠くの足場や少しの段差で活躍する。簡単で汎用性も高い。</p>
+                <div class="technique">
+                    <h3>11. 浮上ラグ</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 最高</p>
+                    <button onclick="showDetails('shock-lag')">詳細を見る</button>
+                    <div id="shock-lag" class="details" style="display: none;">
+                        <p>かなり高くまで上昇できる。運要素も大きくかなり難しい。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>22. ジャンプラグ(落下)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中, 高</p>
-                <button onclick="showDetails('jump-lag-fall')">詳細を見る</button>
-                <div id="jump-lag-fall" class="details" style="display: none;">
-                    <p>ジャンプラグの応用。場所によっては少し難しい。</p>
+                <div class="technique">
+                    <h3>12. ホコショクワン</h3>
+                    <p>使用ラグ : Queue</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('hoko-shock')">詳細を見る</button>
+                    <div id="hoko-shock" class="details" style="display: none;">
+                        <p>ソロで高所の足場に乗れる。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>23. 着地ラグ(ビーコン有り)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('land-lag-beacon')">詳細を見る</button>
-                <div id="land-lag-beacon" class="details" style="display: none;">
-                    <p>今ではジャンプラグの下位互換。</p>
+                <div class="technique">
+                    <h3>13. 吹っ飛びラグ</h3>
+                    <p>使用ラグ : Queue</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('blow-lag')">詳細を見る</button>
+                    <div id="blow-lag" class="details" style="display: none;">
+                        <p>実用性は低いが見た目のインパクトが大きい。</p>
+                    </div>
                 </div>
-            </div>
-            <div class="technique">
-                <h3>24. 着地ラグ(ビーコン無し)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 低</p>
-                <button onclick="showDetails('land-lag-no-beacon')">詳細を見る</button>
-                <div id="land-lag-no-beacon" class="details" style="display: none;">
-                    <p>ビーコンが必要ない分使いやすいが、それでもジャンプラグの下位互換。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>25. 落ちラグ(ビーコン有り)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('fall-lag-beacon')">詳細を見る</button>
-                <div id="fall-lag-beacon" class="details" style="display: none;">
-                    <p>地面の下の足場に乗る時に使われる。場所によって難易度が変わる。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>26. 落ちラグ(ビーコン無し)</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('fall-lag-no-beacon')">詳細を見る</button>
-                <div id="fall-lag-no-beacon" class="details" style="display: none;">
-                    <p>ビーコンを使わない分、行ける場所は制限される。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>27. ジェッパラグ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 高</p>
-                <button onclick="showDetails('jet-lag')">詳細を見る</button>
-                <div id="jet-lag" class="details" style="display: none;">
-                    <p>ジェッパラグで行けるところは全部、他のラグでもっと簡単に行くことが可能。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>28. 前ラグ</h3>
-                <p>使用ラグ : Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('front-lag')">詳細を見る</button>
-                <div id="front-lag" class="details" style="display: none;">
-                    <p>ほとんど使われることはない。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>29. 無敵ラグ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('invincible-lag')">詳細を見る</button>
-                <div id="invincible-lag" class="details" style="display: none;">
-                    <p>無敵+透明になれる。非公開ラグ。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>30. 透明ラグ</h3>
-                <p>使用ラグ : Limit, Block</p>
-                <p>難易度 : 最高</p>
-                <button onclick="showDetails('invisible-lag-2')">詳細を見る</button>
-                <div id="invisible-lag-2" class="details" style="display: none;">
-                    <p>透明になれる。非常に回線が落ちやすい。</p>
-                </div>
-            </div>
-            <div class="technique">
-                <h3>31. ホコ武器</h3>
-                <p>使用ラグ : Queue</p>
-                <p>難易度 : 中</p>
-                <button onclick="showDetails('hoko-weapon')">詳細を見る</button>
-                <div id="hoko-weapon" class="details" style="display: none;">
-                    <p>ホコと武器が合体する。実用性は無いが楽しい。</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="tips">
-            <h2>役立つヒント</h2>
-            <div class="technique">
-                <h3>1. 不安定</h3>
-                <p>不安定が表示されると動けなくなる。</p>
-                <button onclick="showDetails('ink-manage')">詳細を見る</button>
-                <div id="ink-manage" class="details" style="display: none;">
-                    <p>不安定が出ないラグもあり、行動が制限されないため重宝される。</p>
+                <h3>スプラトゥーン2</h3>
+                <div class="technique">
+                    <h3>14. 旧浮き</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('squid-roll')">詳細を見る</button>
+                    <div id="squid-roll" class="details" style="display: none;">
+                        <p>スプラ2では新浮きと同じくらい使用されている。</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+                <div class="technique">
+                    <h3>15. 旧浮き応用</h3>
+                    <p>使用ラグ : Limit + Block</p>
+                    <p>難易度 : 最高</p>
+                    <button onclick="showDetails('quick-jump')">詳細を見る</button>
+                    <div id="quick-jump" class="details" style="display: none;">
+                        <p>タイミングがかなり複雑な上に、スプラ2だと回線落ちのリスクも高い。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>16. 浮きスラ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('shot-dodge')">詳細を見る</button>
+                    <div id="shot-dodge" class="details" style="display: none;">
+                        <p>ラグ一回で様々な足場に乗れる便利なラグ。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>17. 新浮きスラ</h3>
+                    <p>使用ラグ : Limit</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('new-float-slide')">詳細を見る</button>
+                    <div id="new-float-slide" class="details" style="display: none;">
+                        <p>こちらも浮きスラと同様に便利なラグ。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>18. スライドラグ(ビーコン有り)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 最低</p>
+                    <button onclick="showDetails('slide-beacon')">詳細を見る</button>
+                    <div id="slide-beacon" class="details" style="display: none;">
+                        <p>最も簡単でシンプルなラグ。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>19. スライドラグ(ビーコン無し、スライド有り)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 低</p>
+                    <button onclick="showDetails('slide-no-beacon')">詳細を見る</button>
+                    <div id="slide-no-beacon" class="details" style="display: none;">
+                        <p>ビーコンがない分少し難易度は上がるが、それでも簡単。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>20. スライドラグ(ビーコン、スライド無し)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 低</p>
+                    <button onclick="showDetails('no-slide-beacon')">詳細を見る</button>
+                    <div id="no-slide-beacon" class="details" style="display: none;">
+                        <p>そもそも上２つのスライドラグで十分なため使用されることは少ない。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>21. ジャンプラグ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('jump-lag-2')">詳細を見る</button>
+                    <div id="jump-lag-2" class="details" style="display: none;">
+                        <p>遠くの足場や少しの段差で活躍する。簡単で汎用性も高い。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>22. ジャンプラグ(落下)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中, 高</p>
+                    <button onclick="showDetails('jump-lag-fall')">詳細を見る</button>
+                    <div id="jump-lag-fall" class="details" style="display: none;">
+                        <p>ジャンプラグの応用。場所によっては少し難しい。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>23. 着地ラグ(ビーコン有り)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 低</p>
+                    <button onclick="showDetails('land-lag-beacon')">詳細を見る</button>
+                    <div id="land-lag-beacon" class="details" style="display: none;">
+                        <p>今ではジャンプラグの下位互換。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>24. 着地ラグ(ビーコン無し)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 低</p>
+                    <button onclick="showDetails('land-lag-no-beacon')">詳細を見る</button>
+                    <div id="land-lag-no-beacon" class="details" style="display: none;">
+                        <p>ビーコンが必要ない分使いやすいが、それでもジャンプラグの下位互換。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>25. 落ちラグ(ビーコン有り)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('fall-lag-beacon')">詳細を見る</button>
+                    <div id="fall-lag-beacon" class="details" style="display: none;">
+                        <p>地面の下の足場に乗る時に使われる。場所によって難易度が変わる。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>26. 落ちラグ(ビーコン無し)</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('fall-lag-no-beacon')">詳細を見る</button>
+                    <div id="fall-lag-no-beacon" class="details" style="display: none;">
+                        <p>ビーコンを使わない分、行ける場所は制限される。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>27. ジェッパラグ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 高</p>
+                    <button onclick="showDetails('jet-lag')">詳細を見る</button>
+                    <div id="jet-lag" class="details" style="display: none;">
+                        <p>ジェッパラグで行けるところは全部、他のラグでもっと簡単に行くことが可能。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>28. 前ラグ</h3>
+                    <p>使用ラグ : Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('front-lag')">詳細を見る</button>
+                    <div id="front-lag" class="details" style="display: none;">
+                        <p>ほとんど使われることはない。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>29. 無敵ラグ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('invincible-lag')">詳細を見る</button>
+                    <div id="invincible-lag" class="details" style="display: none;">
+                        <p>無敵+透明になれる。非公開ラグ。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>30. 透明ラグ</h3>
+                    <p>使用ラグ : Limit, Block</p>
+                    <p>難易度 : 最高</p>
+                    <button onclick="showDetails('invisible-lag-2')">詳細を見る</button>
+                    <div id="invisible-lag-2" class="details" style="display: none;">
+                        <p>透明になれる。非常に回線が落ちやすい。</p>
+                    </div>
+                </div>
+                <div class="technique">
+                    <h3>31. ホコ武器</h3>
+                    <p>使用ラグ : Queue</p>
+                    <p>難易度 : 中</p>
+                    <button onclick="showDetails('hoko-weapon')">詳細を見る</button>
+                    <div id="hoko-weapon" class="details" style="display: none;">
+                        <p>ホコと武器が合体する。実用性は無いが楽しい。</p>
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <p>© 2025 スプラトゥーン PCラグ</p>
-    </footer>
+            <section id="tips">
+                <h2>役立つヒント</h2>
+                <div class="technique">
+                    <h3>1. 不安定</h3>
+                    <p>不安定が表示されると動けなくなる。</p>
+                    <button onclick="showDetails('ink-manage')">詳細を見る</button>
+                    <div id="ink-manage" class="details" style="display: none;">
+                        <p>不安定が出ないラグもあり、行動が制限されないため重宝される。</p>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-    <script>
-        // 詳細を表示/非表示にする関数
-        function showDetails(id) {
-            const element = document.getElementById(id);
-            if (element.style.display === "none") {
-                element.style.display = "block";
-            } else {
-                element.style.display = "none";
-            }
-        }
+        <footer>
+            <p>© 2025 スプラトゥーン PCラグ</p>
+        </footer>
 
-        // スムーズスクロールを有効化
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        <script>
+            // 詳細を表示/非表示にする関数
+            function showDetails(id) {
+                const element = document.getElementById(id);
+                if (element.style.display === "none") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
                 }
-            });
-        });
+            }
 
-        // フィルター機能
-        document.addEventListener('DOMContentLoaded', () => {
-            const lagTypeFilter = document.getElementById('lag-type-filter');
-            const difficultyFilter = document.getElementById('difficulty-filter');
+            // 使い方カードの詳細表示
+            function showUsageDetails(id) {
+                const element = document.getElementById(id);
+                if (element.style.display === "none") {
+                    element.style.display = "block";
+                } else {
+                    element.style.display = "none";
+                }
+            }
 
-            function applyFilters() {
-                const selectedLagType = lagTypeFilter.value;
-                const selectedDifficulty = difficultyFilter.value;
+            // スライダー機能
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const slider = document.querySelector('.slider');
 
-                // すべての .technique 要素を取得
-                const techniques = document.querySelectorAll('#advanced .technique');
-                // すべてのセクション見出し（共通、スプラトゥーン2、スプラトゥーン3）を表示
-                const sectionHeaders = document.querySelectorAll('#advanced h3:not(.technique h3)');
-                sectionHeaders.forEach(header => header.classList.remove('hidden'));
-
-                techniques.forEach(technique => {
-                    // 「使用ラグ」のテキスト（例: "使用ラグ : Limit, Block"）
-                    const lagText = technique.querySelector('p:nth-of-type(1)').textContent.replace('使用ラグ : ', '').trim();
-                    // 「難易度」のテキスト（例: "難易度 : 低"）
-                    const difficultyText = technique.querySelector('p:nth-of-type(2)').textContent;
-
-                    // ラグの種類を厳密に比較
-                    const lagMatch = selectedLagType === '' || lagText === selectedLagType;
-
-                    // 難易度を厳密に比較（"難易度 : "を除去して比較）
-                    const difficultyValue = difficultyText.replace('難易度 : ', '').trim();
-                    const difficultyMatch = selectedDifficulty === '' || difficultyValue === selectedDifficulty;
-
-                    // 両方の条件を満たす場合に表示
-                    if (lagMatch && difficultyMatch) {
-                        technique.classList.remove('hidden');
-                    } else {
-                        technique.classList.add('hidden');
-                    }
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
                 });
             }
 
-            // フィルター変更時に適用
-            lagTypeFilter.addEventListener('change', applyFilters);
-            difficultyFilter.addEventListener('change', applyFilters);
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlider();
+            }
 
-            // 初期表示時にフィルターを適用
-            applyFilters();
-        });
-    </script>
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlider();
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateSlider();
+            }
+
+            // スムーズスクロール
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // フィルター機能
+            document.addEventListener('DOMContentLoaded', () => {
+                const lagTypeFilter = document.getElementById('lag-type-filter');
+                const difficultyFilter = document.getElementById('difficulty-filter');
+
+                function applyFilters() {
+                    const selectedLagType = lagTypeFilter.value;
+                    const selectedDifficulty = difficultyFilter.value;
+
+                    const techniques = document.querySelectorAll('#advanced .technique');
+                    const sectionHeaders = document.querySelectorAll('#advanced h3:not(.technique h3)');
+                    sectionHeaders.forEach(header => header.classList.remove('hidden'));
+
+                    techniques.forEach(technique => {
+                        const lagText = technique.querySelector('p:nth-of-type(1)').textContent.replace('使用ラグ : ', '').trim();
+                        const difficultyText = technique.querySelector('p:nth-of-type(2)').textContent;
+                        const difficultyValue = difficultyText.replace('難易度 : ', '').trim();
+
+                        const lagMatch = selectedLagType === '' || lagText === selectedLagType;
+                        const difficultyMatch = selectedDifficulty === '' || difficultyValue === selectedDifficulty;
+
+                        if (lagMatch && difficultyMatch) {
+                            technique.classList.remove('hidden');
+                        } else {
+                            technique.classList.add('hidden');
+                        }
+                    });
+                }
+
+                lagTypeFilter.addEventListener('change', applyFilters);
+                difficultyFilter.addEventListener('change', applyFilters);
+                applyFilters();
+            });
+        </script>
 </body>
 
 </html>
