@@ -17,6 +17,8 @@
             color: #1d1d1f;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            display: none;
+            /* 初期状態でコンテンツを非表示 */
         }
 
         /* ヘッダー */
@@ -1103,6 +1105,23 @@
         </footer>
 
         <script>
+
+            // パスワード認証
+            function checkPassword() {
+                const correctPassword = "cfsplag";
+                let password = prompt("パスワードを入力してください:");
+
+                if (password === correctPassword) {
+                    document.body.style.display = "block"; // 正しいパスワードでコンテンツを表示
+                } else {
+                    alert("パスワードが間違っています。もう一度お試しください。");
+                    checkPassword(); // 間違えた場合再入力
+                }
+            }
+
+            // ページ読み込み時にパスワード認証を呼び出す
+            window.onload = checkPassword;
+
             // 詳細を表示/非表示にする関数
             function showDetails(id) {
                 const element = document.getElementById(id);
