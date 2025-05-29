@@ -25,18 +25,75 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: #fff;
-            padding: 24px 20px;
+            padding: 10px 20px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            /* Flexboxを使用してレイアウト */
+            align-items: center;
+            /* 垂直方向の中央揃え */
+            justify-content: space-between;
+            /* 左右に要素を配置 */
         }
 
         @supports not (backdrop-filter: blur(10px)) {
             header {
                 background-color: rgba(0, 0, 0, 0.9);
             }
+        }
+
+        /* ヘッダーのタイトル（Cuttlefish） */
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            flex: 0 0 auto;
+            /* タイトルは縮まない */
+        }
+
+        /* ナビゲーション */
+        nav {
+            flex: 1;
+            /* ナビゲーションが残りのスペースを占有 */
+            display: flex;
+            justify-content: center;
+            /* 中央揃え */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            /* リンクを横に並べる */
+            gap: 32px;
+            /* リンク間の間隔 */
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #d2d2d7;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0071e3;
+        }
+
+        /* トップリンク（元のリンク部分） */
+        .top-links {
+            flex: 0 0 auto;
+            /* リンク部分は縮まない */
         }
 
         .top-links a {
@@ -264,7 +321,7 @@
 
 <body>
     <header>
-        <h1>スプラトゥーン PCラグ</h1>
+        <h1>Cuttlefish</h1>
         <nav>
             <ul>
                 <li><a href="#basic">種類</a></li>
